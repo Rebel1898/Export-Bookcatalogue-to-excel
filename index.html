@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Export BookCatalogue CSV to excel file</title>
+    <link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #table {
+            width: 100%;
+            max-width: 100%;
+            flex: 1;
+            overflow: auto;
+            margin-top: 20px;
+        }
+
+
+        button {
+            margin-right: 10px;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Export BookCatalogue CSV to excel file</h1>
+    <button id="btnSelect">Load CSV</button>
+    <button id="btnExport">Export to XLSX</button>
+    <button id="btnAddColumn" disabled>Add column</button>
+    <div id="table"></div>
+
+    <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
+    <script src="renderer.js"></script>
+
+    <div id="renameModal" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;">
+        <div style="background:white; padding:20px; border-radius:5px; width:300px;">
+            <h3>Rename column</h3>
+            <input type="text" id="renameInput" style="width:100%; padding:6px; margin-bottom:10px;">
+            <button id="renameSave">Save</button>
+            <button id="renameCancel">Cancel</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
