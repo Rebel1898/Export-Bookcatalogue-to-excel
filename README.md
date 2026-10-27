@@ -6,7 +6,7 @@ The app is designed with electron and releases are available for Linux and Windo
 
 # Use
 The use is straightforward. Open the app, load the CSV obtained from BookCatalogue. A grid with the table will be shown. 
-You may add, delete, rename or reorder the columns. When everythins is as desired just export it to xlsx.
+You may add, delete, rename or reorder the columns. When everything is as desired, just export it to xlsx.
 
 # Build & Run
 
