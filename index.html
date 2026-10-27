@@ -30,7 +30,12 @@
 <body>
     <h1>Export BookCatalogue CSV to excel file</h1>
     <button id="btnSelect">Load CSV</button>
-    <button id="btnExport">Export to XLSX</button>
+    <button id="btnExport" disabled>Export to XLSX</button>
+    <button id="btnRuleSet" disabled>open rules to apply(json)</button>
+    <button id="btnApplyRule" disabled>Apply rules </button>
+
+
+
     <button id="btnAddColumn" disabled>Add column</button>
     <div id="table"></div>
 
@@ -56,3 +61,17 @@
 </body>
 
 </html>
+<script>
+    document.getElementById('btnRuleSet').addEventListener('click', () => {
+        window.api.openRuleSet();
+    });
+
+    document.getElementById('btnApplyRule').addEventListener('click', async () => {
+
+        window.api.applyRule();
+
+    });
+
+
+
+</script>

@@ -1,0 +1,39 @@
+{
+  "ruleName": "default",
+  "fields": [
+{ "field": "_id", "action": "delete" },
+{ "field": "rating", "action": "delete" },
+{ "field": "bookshelf_id", "action": "delete" },
+{ "field": "read", "action": "delete" },
+{ "field": "series_details", "action": "delete" },
+{ "field": "notes", "action": "delete" },
+{ "field": "list_price", "action": "delete"},
+{ "field": "anthology", "action": "delete" },
+{ "field": "location", "action": "delete" },
+{ "field": "read_start", "action": "delete"},
+{ "field": "read_end", "action": "delete" },
+{ "field": "signed", "action": "delete" },
+{ "field": "loaned_to", "action": "delete"},
+{ "field": "anthology_titles", "action": "delete" },
+{ "field": "goodreads_book_id", "action": "delete" },
+{ "field": "last_goodreads_sync_date", "action": "delete" },
+{ "field": "last_update_date", "action": "delete" },
+{ "field": "book_uuid", "action": "delete" },
+{ "field": "author_details", "action": "rename", "newName": "Autor" },
+{ "field": "title", "action": "rename", "newName": "Título" },
+{ "field": "isbn", "action": "rename", "newName": "ISBN" },
+{ "field": "publisher", "action": "rename", "newName": "Editorial" },
+{ "field": "date_published", "action": "rename","newName": "Fecha de publicacion" },
+{ "field": "bookshelf", "action": "rename", "newName": "Localización" },
+{ "field": "pages", "action": "rename", "newName": "Páginas" },
+{ "field": "format", "action": "rename", "newName": "Formato" },
+{ "field": "description", "action": "rename", "newName": "Descripción" },
+{ "field": "genre", "action": "rename", "newName": "Genero" },
+{ "field": "language", "action": "rename", "newName": "Lenguaje" },
+{ "field": "date_added", "action": "rename", "newName": "Fecha de catalogación"}
+]
+}
+
+
+
+

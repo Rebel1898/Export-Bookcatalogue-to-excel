@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const widthColumn = "150";
@@ -172,6 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         document.getElementById("btnAddColumn").disabled = false;
+                document.getElementById("btnRuleSet").disabled = false;
+
+                        document.getElementById("btnApplyRule").disabled = false;
+
     });
 
   
@@ -198,6 +205,47 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Archivo XLSX generado.");
     });
 
+      async function applyRuleToTable() {
+    if (!table) {
+        alert('Primero debes cargar un CSV');
+        return;
+    }
+
+    try {
+        // Pedir las reglas al proceso principal
+        const result = await window.api.applyRule();
+
+        console.log('Resultado de las reglas:', result);
+
+        // Guardar el estado anterior para Ctrl+Z
+        pushUndoSnapshot();
+
+        // Obtener las columnas actuales
+        const currentDefs = table.getColumnDefinitions();
+
+        // Eliminar las columnas indicadas y cambiar los títulos
+        const updatedDefs = currentDefs
+            .filter(col => result.columns.includes(col.field))
+            .map(col => ({
+                ...col,
+                title: result.newNames[col.field] ?? col.title
+            }));
+
+        // Actualizar Tabulator
+        await table.setColumns(updatedDefs);
+
+        table.redraw(true);
+
+        console.log('Reglas aplicadas correctamente');
+
+    } catch (error) {
+        console.error('Error al aplicar las reglas:', error);
+        alert('Error al aplicar las reglas: ' + error.message);
+    }
+}
+const btnApplyRule = document.getElementById('btnApplyRule');
+
+btnApplyRule.addEventListener('click', applyRuleToTable);
 
     const btnAddColumn = document.getElementById("btnAddColumn");
 
@@ -243,6 +291,10 @@ btnAddColumn.addEventListener("click", () => {
       return div;
     }
   };
+
+
+
+
 
 
   table.addColumn(newCol, true); 
